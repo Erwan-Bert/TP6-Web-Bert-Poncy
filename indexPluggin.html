@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>jquery.rss accordion example</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+    <script src="http://code.jquery.com/jquery-3.4.0.js"></script>
+    <script src="jquery.rss.min.js"></script>
+
+    
+    <script>
+        jQuery(function($) {
+            $("#rss-feeds").rss("https://www.lemonde.fr/sport/rss_full.xml", {
+                limit: 30,
+                layoutTemplate: "{entries}",
+                entryTemplate:
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p></div></div>",
+                success: function() {
+                    $(".entry").each(function(i, entry) {
+                        $(entry).slideDown();
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="titre">
+    <h1>Voici une liste d'articles provenenant du site
+        <a href="https://www.lemonde.fr/"><img class="logoLeMonde" src="pictures/logo-lemonde.png"  alt="LeMonde"></a>
+    sur le thème du sport</h1>
+</div><br>
+
+<div>
+    <!--<h1>jquery.rss example</h1>
+
+    <h2>Examples:</h2>
+    <ul>
+        <li><a href="examples/custom-dates.html">Custom dates</a></li>
+        <li><a href="examples/effects.html">Effects</a></li>
+        <li><a href="examples/ezypay.html">EzyPay</a></li>
+        <li><a href="examples/multi-feed.html">Multi Feed</a></li>
+        <li><a href="examples/visitlakecounty.html">Visit Lake County</a></li>
+        <li><a href="examples/zotero.html">Zotero</a></li>
+    </ul>
+    -->
+
+    <div id="rss-feeds"></div>
+</div>
+</body>
+</html>

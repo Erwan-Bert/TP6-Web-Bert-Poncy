@@ -8,21 +8,9 @@
     <script src="jquery.rss.min.js"></script>
 
     
-    <script>
-        jQuery(function($) {
-            $("#rss-feeds").rss("https://www.lemonde.fr/sport/rss_full.xml", {
-                limit: 30,
-                layoutTemplate: "{entries}",
-                entryTemplate:
-                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p></div></div>",
-                success: function() {
-                    $(".entry").each(function(i, entry) {
-                        $(entry).slideDown();
-                    });
-                }
-            });
-        });
-    </script>
+
+
+
 </head>
 <body>
 <div class="titre">
@@ -32,19 +20,43 @@
 </div><br>
 
 <div>
-    <!--<h1>jquery.rss example</h1>
-
-    <h2>Examples:</h2>
-    <ul>
-        <li><a href="examples/custom-dates.html">Custom dates</a></li>
-        <li><a href="examples/effects.html">Effects</a></li>
-        <li><a href="examples/ezypay.html">EzyPay</a></li>
-        <li><a href="examples/multi-feed.html">Multi Feed</a></li>
-        <li><a href="examples/visitlakecounty.html">Visit Lake County</a></li>
-        <li><a href="examples/zotero.html">Zotero</a></li>
-    </ul>
-    -->
-
+    <script>
+        jQuery(function($) {
+            $("#rss-feeds").rss("https://www.lemonde.fr/sport/rss_full.xml", {
+                tokens: {
+                    "link": function(entry, tokens) {
+                        return  entry.link;
+                    },
+                    "image": function(entry, tokens) {
+                        return  entry.mediaTrackId;
+                },
+                limit: 30,
+                layoutTemplate: "{entries}, {description}",
+                entryTemplate:
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{image}</a></div></div>",
+                success: function() {
+                    $(".entry").each(function(i, entry) {
+                        $(entry).slideDown();
+                    });
+                }
+            });
+        });
+    </script>
+    <!--<script>
+        jQuery(function($) {
+            $("#rss-feeds").rss("https://www.lemonde.fr/politique/rss_full.xml", {
+                limit: 30,
+                layoutTemplate: "{entries}, {description}",
+                entryTemplate:
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{body}</p></div></div>",
+                success: function() {
+                    $(".entry").each(function(i, entry) {
+                        $(entry).slideDown();
+                    });
+                }
+            });
+        });
+    </script>-->
     <div id="rss-feeds"></div>
 </div>
 </body>

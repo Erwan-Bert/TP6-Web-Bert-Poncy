@@ -24,11 +24,12 @@
         jQuery(function($) {
             $("#rss-feeds").rss("https://www.lemonde.fr/sport/rss_full.xml", {
                 tokens: {
-                    "link": function(entry, tokens) {
-                        return  entry.link;
+                    "link": function (entry, tokens) {
+                        return entry.link;
                     },
-                    "image": function(entry, tokens) {
-                        return  entry.mediaTrackId;
+                    "image": function (entry, tokens) {
+                        return entry.mediaTrackId;
+                    },
                 },
                 limit: 30,
                 layoutTemplate: "{entries}, {description}",

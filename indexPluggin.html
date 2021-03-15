@@ -28,13 +28,16 @@
                         return entry.link;
                     },
                     "image": function (entry, tokens) {
-                        return entry.mediaTrackId;
+                        return entry.media;
                     },
+                },
+                dateFormatFunction: function(date) {
+                   return date.split("T")[0];
                 },
                 limit: 30,
                 layoutTemplate: "{entries}, {description}",
                 entryTemplate:
-                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{image}</a></div></div>",
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{date}</a></div></div>",
                 success: function() {
                     $(".entry").each(function(i, entry) {
                         $(entry).slideDown();

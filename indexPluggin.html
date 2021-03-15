@@ -7,10 +7,6 @@
     <script src="http://code.jquery.com/jquery-3.4.0.js"></script>
     <script src="jquery.rss.min.js"></script>
 
-    
-
-
-
 </head>
 <body>
 <div class="titre">
@@ -22,7 +18,7 @@
 <div>
     <script>
         jQuery(function($) {
-            $("#rss-feeds").rss("https://www.lemonde.fr/sport/rss_full.xml", {
+            $("#rss-feeds").rss("https://www.lemonde.fr/football/rss_full.xmll", {
                 tokens: {
                     "link": function (entry, tokens) {
                         return entry.link;
@@ -46,13 +42,24 @@
             });
         });
     </script>
-    <!--<script>
+    <script>
         jQuery(function($) {
-            $("#rss-feeds").rss("https://www.lemonde.fr/politique/rss_full.xml", {
+            $("#rss-feeds").rss("https://www.lemonde.fr/rugby/rss_full.xml", {
+                tokens: {
+                    "link": function (entry, tokens) {
+                        return entry.link;
+                    },
+                    "image": function (entry, tokens) {
+                        return entry.media;
+                    },
+                },
+                dateFormatFunction: function(date) {
+                    return date.split("T")[0];
+                },
                 limit: 30,
                 layoutTemplate: "{entries}, {description}",
                 entryTemplate:
-                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{body}</p></div></div>",
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{date}</a></div></div>",
                 success: function() {
                     $(".entry").each(function(i, entry) {
                         $(entry).slideDown();
@@ -60,7 +67,59 @@
                 }
             });
         });
-    </script>-->
+    </script>
+    <script>
+        jQuery(function($) {
+            $("#rss-feeds").rss("https://www.lemonde.fr/basket/rss_full.xml", {
+                tokens: {
+                    "link": function (entry, tokens) {
+                        return entry.link;
+                    },
+                    "image": function (entry, tokens) {
+                        return entry.media;
+                    },
+                },
+                dateFormatFunction: function(date) {
+                    return date.split("T")[0];
+                },
+                limit: 30,
+                layoutTemplate: "{entries}, {description}",
+                entryTemplate:
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{date}</a></div></div>",
+                success: function() {
+                    $(".entry").each(function(i, entry) {
+                        $(entry).slideDown();
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        jQuery(function($) {
+            $("#rss-feeds").rss("https://www.lemonde.fr/tennis/rss_full.xml", {
+                tokens: {
+                    "link": function (entry, tokens) {
+                        return entry.link;
+                    },
+                    "image": function (entry, tokens) {
+                        return entry.media;
+                    },
+                },
+                dateFormatFunction: function(date) {
+                    return date.split("T")[0];
+                },
+                limit: 30,
+                layoutTemplate: "{entries}, {description}",
+                entryTemplate:
+                    "<div class='entry'><h3>Titre de l'article // {title}</h3><div><p>{bodyPlain}</p><p>{link}</p></div><a>{date}</a></div></div>",
+                success: function() {
+                    $(".entry").each(function(i, entry) {
+                        $(entry).slideDown();
+                    });
+                }
+            });
+        });
+    </script>
     <div id="rss-feeds"></div>
 </div>
 </body>

@@ -10238,3 +10238,21 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #1a252f;
 }
+
+.article{
+  background-color: rgb(44,62,80,0.6);
+  border-style: solid;
+  border-color: #1b1e21;
+  padding: 15px;
+  margin: 15px;
+}
+
+.article:hover {
+  background-color: rgb(44,62,80,0.4);
+  border-style: solid;
+  border-color: #1b1e21;
+}
+
+.entry{
+  text-align: center;
+}

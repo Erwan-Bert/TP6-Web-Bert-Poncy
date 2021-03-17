@@ -34,19 +34,21 @@
             limit: 10,
             layoutTemplate: "{entries}, {description}",
             entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
                 "<div class=\"row justify-content-center\">" +
                 "<div class=\"col-sm-12\">" +
                 "<div class='entry'>" +
-                "   <h3>{title}</h3>" +
+                "   <h3 class=\"Titre\" >{title}</h3>" +
                 "   <div>" +
                 "       <p>{bodyPlain}</p>" +
-                "       <a href={link}><p>Voir l'article</p></a>" +
+                "       <a class=\"voirArticle\" href={link}><p>Voir l'article</p></a>" +
                 "       <a>Date : {date}</a>" +
                 "   </div>" +
                 "       </div>" +
                 "   </div>" +
                 "   </div>" +
                 "<br>" +
+                "</div>" +
                 "</div>" +
                 "<br>",
             success: function() {
@@ -74,6 +76,7 @@
             limit: 10,
             layoutTemplate: "{entries}, {description}",
             entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
                 "<div class=\"row justify-content-center\">" +
                 "<div class=\"col-sm-12\">" +
                 "<div class='entry'>" +
@@ -87,6 +90,7 @@
                 "   </div>" +
                 "   </div>" +
                 "<br>" +
+                "</div>" +
                 "</div>" +
                 "<br>",
             success: function() {
@@ -114,6 +118,7 @@
             limit: 10,
             layoutTemplate: "{entries}, {description}",
             entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
                 "<div class=\"row justify-content-center\">" +
                 "<div class=\"col-sm-12\">" +
                 "<div class='entry'>" +
@@ -127,6 +132,7 @@
                 "   </div>" +
                 "   </div>" +
                 "<br>" +
+                "</div>" +
                 "</div>" +
                 "<br>",
             success: function() {
@@ -154,6 +160,7 @@
             limit: 10,
             layoutTemplate: "{entries}, {description}",
             entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
                 "<div class=\"row justify-content-center\">" +
                 "<div class=\"col-sm-12\">" +
                 "<div class='entry'>" +
@@ -168,6 +175,7 @@
                 "   </div>" +
                 "<br>" +
                 "</div>" +
+                "</div>" +
                 "<br>",
             success: function() {
                 $(".entry").each(function(i, entry) {
@@ -180,9 +188,8 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Actu Sport LE MONDE</a>
+        <a class="navbar-brand js-scroll-trigger" href="#">Actu Sport LE MONDE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -206,8 +213,8 @@
         </div>
     </div>
 </header>
-
-<section class="page-section portfolio" id="football">
+<div id="football"></div>
+<section class="page-section portfolio">
     <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Football</h2>
         <div class="divider-custom">

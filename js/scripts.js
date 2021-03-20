@@ -32,8 +32,11 @@
     (n=jQuery).fn.rss=function(t,e={},i) {
         return new s(this,t,{...e,fetchFeed:t=>new Promise((e,i)=>{n.ajax({dataType:"json",url:t,success:e,error:i})})}).render().then((...t)=>{i&&i(...t),e&&e.success&&e.success(...t)},(...t)=>{e&&e.error&&e.error(...t)}),this
     }
+    "use strict"; // Start of use strict
+
+    // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
@@ -55,11 +58,6 @@
         }
     });
 
-    $("#article").click(function () {
-
-        }
-    )
-
     // Closes responsive menu when a scroll trigger link is clicked
     $('.js-scroll-trigger').click(function() {
         $('.navbar-collapse').collapse('hide');
@@ -73,10 +71,10 @@
 
     // Collapse Navbar
     var navbarCollapse = function() {
-        if ($("#football").offset().top > 100) {
-            $("#football").addClass("navbar-shrink");
+        if ($("#mainNav").offset().top > 100) {
+            $("#mainNav").addClass("navbar-shrink");
         } else {
-            $("#football").removeClass("navbar-shrink");
+            $("#mainNav").removeClass("navbar-shrink");
         }
     };
     // Collapse now if page is not at top

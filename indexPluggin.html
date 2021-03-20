@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-3.4.0.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/js.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -183,7 +184,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Actu Sport LE MOND</a>
+        <a class="navbar-brand js-scroll-trigger" href="javascript:window.scroll(0, 0)" >Actu Sport LE MONDE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -194,93 +195,106 @@
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rugby">Rugby</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#basketball">Basketball</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#tennis">Tennis</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#newFlux">Flux ajoutés</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Actu sport LE MONDE</h1>
-        <a href="https://www.lemonde.fr/sport/"><img class="masthead-avatar mb-5" src="pictures/logo-lemonde.png" alt="" /></a>
+        <h1 class="masthead-heading text-uppercase mb-0">Actu sport LE MONDE
+        </h1>
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
         <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                <label>Name</label>
-                <input class="form-control" id="name" type="text" placeholder="Url" data-validation-required-message="Entrez un flux" />
-                <p class="help-block text-danger"></p>
-            </div>
         </div>
-        <div class="form-group"><button class="btn btn-primary btn-xl" id="" type="submit">Ajouter un Fux</button></div>
+        <div class="form-group"><button class="btn btn-primary btn-xl" id="ajout" type="submit">Ajouter un Fux</button></div>
     </div>
 </header>
-<div id="football"></div>
-<section class="page-section portfolio">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Football</h2>
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="row">
-                <div id="rss-feedsfoot"></div>
+<div id="allflux">
+    <div id="football"></div>
+    <section class="page-section portfolio">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Football</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div id="rss-feedsfoot"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="page-section portfolio" id="rugby">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rugby</h2>
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="row">
-                <div id="rss-feedsrugby"></div>
+    <section class="page-section portfolio" id="rugby">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rugby</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div id="rss-feedsrugby"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="page-section portfolio" id="basketball">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Basketball</h2>
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="row">
-                <div id="rss-feedsbasket"></div>
+    <section class="page-section portfolio" id="basketball">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Basketball</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div id="rss-feedsbasket"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="page-section portfolio" id="tennis">
-    <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Tennis</h2>
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="row">
-                <div id="rss-feedstennis"></div>
+    <section class="page-section portfolio" id="tennis">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Tennis</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div id="rss-feedstennis"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section class="page-section portfolio" id="newFlux">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Flux Ajoutés</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div id="rss-flux"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 <div>
 

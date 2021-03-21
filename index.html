@@ -27,7 +27,7 @@
 
 <!-- Menu NavBar ScrollSpy-->
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <div class="container">
+    <div class="container" id="nav">
         <a class="navbar-brand js-scroll-trigger" href="javascript:window.scroll(0, 0)" >Actu Sport LE MONDE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -35,11 +35,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#football">Football</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rugby">Rugby</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#basketball">Basketball</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#tennis">Tennis</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#newFlux">Flux ajoutés</a></li>
+                <li class="nav-item mx-0 mx-lg-1" id="navFootball"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#football">Football</a></li>
+                <li class="nav-item mx-0 mx-lg-1" id="navRugby"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rugby">Rugby</a></li>
+                <li class="nav-item mx-0 mx-lg-1" id="navBasketball"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#basketball">Basketball</a></li>
+                <li class="nav-item mx-0 mx-lg-1" id="navTennis"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#tennis">Tennis</a></li>
+                <li class="nav-item mx-0 mx-lg-1" id="navFlux"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#newFlux">Flux ajoutés</a></li>
             </ul>
         </div>
     </div>
@@ -48,8 +48,7 @@
 <!-- Partie d'acceuil ACTU sport LE MONDE -->
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Actu sport LE MONDE
-        </h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Actu sport LE MONDE</h1>
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -57,7 +56,15 @@
         </div>
         <div class="control-group">
         </div>
-        <div class="form-group"><button class="btn btn-primary btn-xl" id="ajout" type="submit">Ajouter un Fux</button></div>
+        <div class="form-group"><button class="btn btn-primary btn-xl" id="ajout" type="submit">Ajouter un Flux</button></div><br>
+        <div class="form-group"><button class="btn btn-primary btn-xl" id="suppr" type="submit">Supprimer un Flux</button></div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-xl" id="supprFootball" type="submit" >Football</button>
+            <button class="btn btn-primary btn-xl" id="supprRugby" type="submit" >Rugby</button>
+            <button class="btn btn-primary btn-xl" id="supprBasketball" type="submit" >Basketball</button>
+            <button class="btn btn-primary btn-xl" id="supprTennis" type="submit" >Tennis</button>
+            <button class="btn btn-primary btn-xl" id="supprFluxAjoutés" type="submit" >Flux Ajoutés</button>
+        </div>
     </div>
 </header>
 
@@ -65,8 +72,9 @@
 <div id="allflux">
 
     <!-- Ajout des informations du fux LE MONDE football -->
-    <div id="football"></div>
-    <section class="page-section portfolio">
+
+    <section class="page-section portfolio" id="football">
+
         <div class="container">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Football</h2>
             <div class="divider-custom">

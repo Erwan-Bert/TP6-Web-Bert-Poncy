@@ -38,53 +38,124 @@
         return new s(this,t,{...e,fetchFeed:t=>new Promise((e,i)=>{n.ajax({dataType:"json",url:t,success:e,error:i})})}).render().then((...t)=>{i&&i(...t),e&&e.success&&e.success(...t)},(...t)=>{e&&e.error&&e.error(...t)}),this
     }
 
-    // ---- Alert ajout d'un flux - Récupération du flux et ajour sur la page
-    // $(document).ready(function (){
-        $("#ajout").click(function () {
-            let rss = window.prompt("entrez le flux");
+    window.onload = function() {
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+    };
 
-            jQuery(function($) {
-                $("#rss-flux").rss(rss, {
-                    tokens: {
-                        "link": function (entry, tokens) {
-                            return entry.link;
-                        },
-                        "image": function (entry, tokens) {
-                            return entry.media;
-                        },
+    // ---- Alert ajout d'un flux - Récupération du flux et ajout sur la page
+    $("#ajout").click(function () {
+        let rss = window.prompt("entrez le flux");
+
+        jQuery(function($) {
+            $("#rss-flux").rss(rss, {
+                tokens: {
+                    "link": function (entry, tokens) {
+                        return entry.link;
                     },
-                    dateFormatFunction: function(date) {
-                        return date.split("T")[0];
+                    "image": function (entry, tokens) {
+                        return entry.media;
                     },
-                    error: function() {
-                        window.alert("le flux rss renseigné n'est pas valide")
-                    },
-                    limit: 10,
-                    layoutTemplate: "{entries}, {description}",
-                    entryTemplate:
-                        "<div class=\"article\" id=\"article\">" +
-                        "<div class=\"row justify-content-center\">" +
-                        "<div class=\"col-sm-12\">" +
-                        "<div class='entry'>" +
-                        "   <h3>{title}</h3>" +
-                        "   <div>" +
-                        "       <p>{bodyPlain}</p>" +
-                        "       <a href={link}><p>Voir l'article</p></a>" +
-                        "       <a>Date : {date}</a>" +
-                        "   </div>" +
-                        "       </div>" +
-                        "   </div>" +
-                        "   </div>" +
-                        "</div>" +
-                        "</div>",
-                    success: function (){
-                        window.alert("Flux ajouté à la fin de la page");
-                        document.getElementById('newFlux').scrollIntoView();
-                    }
-                });
+                },
+                dateFormatFunction: function(date) {
+                    return date.split("T")[0];
+                },
+                error: function() {
+                    window.alert("le flux rss renseigné n'est pas valide")
+                },
+                limit: 10,
+                layoutTemplate: "{entries}, {description}",
+                entryTemplate:
+                    "<div class=\"article\" id=\"article\">" +
+                    "<div class=\"row justify-content-center\">" +
+                    "<div class=\"col-sm-12\">" +
+                    "<div class='entry'>" +
+                    "   <h3>{title}</h3>" +
+                    "   <div>" +
+                    "       <p>{bodyPlain}</p>" +
+                    "       <a href={link}><p>Voir l'article</p></a>" +
+                    "       <a>Date : {date}</a>" +
+                    "   </div>" +
+                    "       </div>" +
+                    "   </div>" +
+                    "   </div>" +
+                    "</div>" +
+                    "</div>",
+                success: function (){
+                    window.alert("Flux ajouté à la fin de la page");
+                    document.getElementById('newFlux').scrollIntoView();
+                }
             });
         });
-    // });
+    });
+
+    // ---- Méthode de suppression d'un flux
+    $("#suppr").click(function () {
+        let rss = window.alert("Choisissez le flux à supprimer");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+    });
+
+    $("#supprFootball").click(function () {
+        let rss = window.alert("Le flux Football a été supprimé");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+        $("#navFootball").fadeOut(0);
+        $("#football").fadeOut(0);
+    });
+
+    $("#supprRugby").click(function () {
+        let rss = window.alert("Le flux Football a été supprimé");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+        $("#navRugby").fadeOut(0);
+        $("#rugby").fadeOut(0);
+    });
+
+    $("#supprBasketball").click(function () {
+        let rss = window.alert("Le flux Football a été supprimé");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+        $("#navBasketball").fadeOut(0);
+        $("#basketball").fadeOut(0);
+    });
+
+    $("#supprTennis").click(function () {
+        let rss = window.alert("Le flux Football a été supprimé");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+        $("#navTennis").fadeOut(0);
+        $("#tennis").fadeOut(0);
+    });
+
+    $("#supprFluxAjoutés").click(function () {
+        let rss = window.alert("Le flux Football a été supprimé");
+        $("#supprFootball").fadeToggle(0);
+        $("#supprRugby").fadeToggle(0);
+        $("#supprBasketball").fadeToggle(0);
+        $("#supprTennis").fadeToggle(0);
+        $("#supprFluxAjoutés").fadeToggle(0);
+        $("#navFlux").fadeOut(0);
+        $("#newFlux").fadeOut(0);
+    });
 
     // ---- Récupération du Flux LE MONDE tennis
     jQuery(function($) {

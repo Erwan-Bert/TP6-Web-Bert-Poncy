@@ -1,4 +1,9 @@
+<!-- ------------- TP6 Application Web Poncy ALex - Bert Erwan ------------ -->
+<!-- scripts.js-->
+
 !function(){
+    // ------------------------- Récupération des Flux ------------------------- //
+
     "use strict";
     const t=["doctype","html","head","title","base","link","meta","style","script","noscript","body","article","nav","aside","section","header","footer","h1-h6","hgroup","address","p","hr","pre","blockquote","ol","ul","li","dl","dt","dd","figure","figcaption","div","table","caption","thead","tbody","tfoot","tr","th","td","col","colgroup","form","fieldset","legend","label","input","button","select","datalist","optgroup","option","textarea","keygen","output","progress","meter","details","summary","command","menu","del","ins","img","iframe","embed","object","param","video","audio","source","canvas","track","map","area","a","em","strong","i","b","u","s","small","abbr","q","cite","dfn","sub","sup","time","code","kbd","samp","var","mark","bdi","bdo","ruby","rt","rp","span","br","wbr","description","link","media:content"];
     class e{constructor(){
@@ -32,9 +37,218 @@
     (n=jQuery).fn.rss=function(t,e={},i) {
         return new s(this,t,{...e,fetchFeed:t=>new Promise((e,i)=>{n.ajax({dataType:"json",url:t,success:e,error:i})})}).render().then((...t)=>{i&&i(...t),e&&e.success&&e.success(...t)},(...t)=>{e&&e.error&&e.error(...t)}),this
     }
-    "use strict"; // Start of use strict
 
-    // Smooth scrolling using jQuery easing
+    // ---- Alert ajout d'un flux - Récupération du flux et ajour sur la page
+    $(document).ready(function (){
+        $("#ajout").click(function () {
+            let rss = window.prompt("entrez le flux");
+
+            jQuery(function($) {
+                $("#rss-flux").rss(rss, {
+                    tokens: {
+                        "link": function (entry, tokens) {
+                            return entry.link;
+                        },
+                        "image": function (entry, tokens) {
+                            return entry.media;
+                        },
+                    },
+                    dateFormatFunction: function(date) {
+                        return date.split("T")[0];
+                    },
+                    error: function() {
+                        window.alert("le flux rss renseigné n'est pas valide")
+                    },
+                    limit: 10,
+                    layoutTemplate: "{entries}, {description}",
+                    entryTemplate:
+                        "<div class=\"article\" id=\"article\">" +
+                        "<div class=\"row justify-content-center\">" +
+                        "<div class=\"col-sm-12\">" +
+                        "<div class='entry'>" +
+                        "   <h3>{title}</h3>" +
+                        "   <div>" +
+                        "       <p>{bodyPlain}</p>" +
+                        "       <a href={link}><p>Voir l'article</p></a>" +
+                        "       <a>Date : {date}</a>" +
+                        "   </div>" +
+                        "       </div>" +
+                        "   </div>" +
+                        "   </div>" +
+                        "</div>" +
+                        "</div>",
+                    success: function (){
+                        window.alert("Flux ajouté à la fin de la page");
+                        document.getElementById('newFlux').scrollIntoView();
+                    }
+                });
+            });
+        });
+    });
+
+    // ---- Récupération du Flux LE MONDE tennis
+    jQuery(function($) {
+        $("#rss-feedstennis").rss("https://www.lemonde.fr/tennis/rss_full.xml", {
+            tokens: {
+                "link": function (entry, tokens) {
+                    return entry.link;
+                },
+                "image": function (entry, tokens) {
+                    return entry.media;
+                },
+            },
+            dateFormatFunction: function(date) {
+                return date.split("T")[0];
+            },
+            limit: 10,
+            layoutTemplate: "{entries}, {description}",
+            entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
+                "<div class=\"row justify-content-center\">" +
+                "<div class=\"col-sm-12\">" +
+                "<div class='entry'>" +
+                "   <h3>{title}</h3>" +
+                "   <div>" +
+                "       <p>{bodyPlain}</p>" +
+                "       <a href={link}><p>Voir l'article</p></a>" +
+                "       <a>Date : {date}</a>" +
+                "   </div>" +
+                "       </div>" +
+                "   </div>" +
+                "   </div>" +
+                "</div>" +
+                "</div>",
+            success: function() {
+                $(".entry").each(function(i, entry) {
+                    $(entry).slideDown();
+                });
+            }
+        });
+    });
+
+    // ---- Récupération du Flux LE MONDE basket
+    jQuery(function($) {
+        $("#rss-feedsbasket").rss("https://www.lemonde.fr/basket/rss_full.xml", {
+            tokens: {
+                "link": function (entry, tokens) {
+                    return entry.link;
+                },
+                "image": function (entry, tokens) {
+                    return entry.media;
+                },
+            },
+            dateFormatFunction: function(date) {
+                return date.split("T")[0];
+            },
+            limit: 10,
+            layoutTemplate: "{entries}, {description}",
+            entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
+                "<div class=\"row justify-content-center\">" +
+                "<div class=\"col-sm-12\">" +
+                "<div class='entry'>" +
+                "   <h3>{title}</h3>" +
+                "   <div>" +
+                "       <p>{bodyPlain}</p>" +
+                "       <a href={link}><p>Voir l'article</p></a>" +
+                "       <a>Date : {date}</a>" +
+                "   </div>" +
+                "       </div>" +
+                "   </div>" +
+                "   </div>" +
+                "</div>" +
+                "</div>" ,
+            success: function() {
+                $(".entry").each(function(i, entry) {
+                    $(entry).slideDown();
+                });
+            }
+        });
+    });
+
+    // ---- Récupération du Flux LE MONDE rugby
+    jQuery(function($) {
+        $("#rss-feedsrugby").rss("https://www.lemonde.fr/rugby/rss_full.xml", {
+            tokens: {
+                "link": function (entry, tokens) {
+                    return entry.link;
+                },
+                "image": function (entry, tokens) {
+                    return entry.media;
+                },
+            },
+            dateFormatFunction: function(date) {
+                return date.split("T")[0];
+            },
+            limit: 10,
+            layoutTemplate: "{entries}, {description}",
+            entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
+                "<div class=\"row justify-content-center\">" +
+                "<div class=\"col-sm-12\">" +
+                "<div class='entry'>" +
+                "   <h3>{title}</h3>" +
+                "   <div>" +
+                "       <p>{bodyPlain}</p>" +
+                "       <a href={link}><p>Voir l'article</p></a>" +
+                "       <a>Date : {date}</a>" +
+                "   </div>" +
+                "       </div>" +
+                "   </div>" +
+                "   </div>" +
+                "</div>" +
+                "</div>",
+            success: function() {
+                $(".entry").each(function(i, entry) {
+                    $(entry).slideDown();
+                });
+            }
+        });
+    });
+
+    // ---- Récupération du Flux LE MONDE football
+    jQuery(function($) {
+        $("#rss-feedsfoot").rss("https://www.lemonde.fr/football/rss_full.xml", {
+            tokens: {
+                "link": function (entry, tokens) {
+                    return entry.link;
+                },
+                "image": function (entry, tokens) {
+                    return entry.media;
+                },
+            },
+            dateFormatFunction: function(date) {
+                return date.split("T")[0];
+            },
+            limit: 10,
+            layoutTemplate: "{entries}, {description}",
+            entryTemplate:
+                "<div class=\"article\" id=\"article\">" +
+                "<div class=\"row justify-content-center\">" +
+                "<div class=\"col-sm-12\">" +
+                "<div class='entry'>" +
+                "   <h3 class=\"Titre\" >{title}</h3>" +
+                "   <div>" +
+                "       <p>{bodyPlain}</p>" +
+                "       <a class=\"voirArticle\" href={link}><p>Voir l'article</p></a>" +
+                "       <a>Date : {date}</a>" +
+                "   </div>" +
+                "       </div>" +
+                "   </div>" +
+                "   </div>" +
+                "</div>" +
+                "</div>",
+            success: function() {
+                $(".entry").each(function(i, entry) {
+                    $(entry).slideDown();
+                });
+            }
+        });
+    });
+
+    // ------------------------- /Fin Récupération des flux ------------------------- //
+
+    // ------------------------- Menu SCROLLSPY ------------------------- //
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -48,7 +262,6 @@
         }
     });
 
-    // Scroll to top button appear
     $(document).scroll(function() {
         var scrollDistance = $(this).scrollTop();
         if (scrollDistance > 100) {
@@ -58,18 +271,15 @@
         }
     });
 
-    // Closes responsive menu when a scroll trigger link is clicked
     $('.js-scroll-trigger').click(function() {
         $('.navbar-collapse').collapse('hide');
     });
 
-    // Activate scrollspy to add active class to navbar items on scroll
     $('body').scrollspy({
         target: '#mainNav',
         offset: 80
     });
 
-    // Collapse Navbar
     var navbarCollapse = function() {
         if ($("#mainNav").offset().top > 100) {
             $("#mainNav").addClass("navbar-shrink");
@@ -77,12 +287,9 @@
             $("#mainNav").removeClass("navbar-shrink");
         }
     };
-    // Collapse now if page is not at top
     navbarCollapse();
-    // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
 
-    // Floating label headings for the contact form
     $(function() {
         $("body").on("input propertychange", ".floating-label-form-group", function(e) {
             $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
@@ -92,5 +299,9 @@
             $(this).removeClass("floating-label-form-group-with-focus");
         });
     });
+
+    // ------------------------- /Fin Menu SCROLLSPY ------------------------- //
+
 }();
+
   

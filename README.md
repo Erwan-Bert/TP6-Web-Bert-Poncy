@@ -7,8 +7,8 @@ Le site se compose de 6 parties
 - Une partie d'acceuil avec le titre et le Menu NAV
 - Une partie d'articles LE MONDE foot
 - Une partie d'articles LE MONDE rugby
-- Une partie d'articles LE MONDE foot
-- Une partie d'articles LE MONDE foot
+- Une partie d'articles LE MONDE basket
+- Une partie d'articles LE MONDE tennis
 - Une partie ou s'affichera les noveaux flux ajoutés 
 
 Le menu permet de naviguer entre les parties du site, il nous amène a l'endroit demandé.

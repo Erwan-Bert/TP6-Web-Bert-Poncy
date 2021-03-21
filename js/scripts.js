@@ -39,7 +39,7 @@
     }
 
     // ---- Alert ajout d'un flux - Récupération du flux et ajour sur la page
-    $(document).ready(function (){
+    // $(document).ready(function (){
         $("#ajout").click(function () {
             let rss = window.prompt("entrez le flux");
 
@@ -84,7 +84,7 @@
                 });
             });
         });
-    });
+    // });
 
     // ---- Récupération du Flux LE MONDE tennis
     jQuery(function($) {

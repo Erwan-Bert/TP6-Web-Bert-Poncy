@@ -39,6 +39,8 @@
     }
 
     window.onload = function() {
+        $("#navFlux").fadeOut(0);
+        $("#newFlux").fadeOut(0);
         $("#supprFootball").fadeToggle(0);
         $("#supprRugby").fadeToggle(0);
         $("#supprBasketball").fadeToggle(0);
@@ -86,6 +88,8 @@
                     "</div>",
                 success: function (){
                     window.alert("Flux ajouté à la fin de la page");
+                    $("#navFlux").fadeIn(0);
+                    $("#newFlux").fadeIn(0);
                     document.getElementById('newFlux').scrollIntoView();
                 }
             });
@@ -114,7 +118,7 @@
     });
 
     $("#supprRugby").click(function () {
-        let rss = window.alert("Le flux Football a été supprimé");
+        let rss = window.alert("Le flux Rugby a été supprimé");
         $("#supprFootball").fadeToggle(0);
         $("#supprRugby").fadeToggle(0);
         $("#supprBasketball").fadeToggle(0);
@@ -125,7 +129,7 @@
     });
 
     $("#supprBasketball").click(function () {
-        let rss = window.alert("Le flux Football a été supprimé");
+        let rss = window.alert("Le flux Basketball a été supprimé");
         $("#supprFootball").fadeToggle(0);
         $("#supprRugby").fadeToggle(0);
         $("#supprBasketball").fadeToggle(0);
@@ -136,7 +140,7 @@
     });
 
     $("#supprTennis").click(function () {
-        let rss = window.alert("Le flux Football a été supprimé");
+        let rss = window.alert("Le flux Tennis a été supprimé");
         $("#supprFootball").fadeToggle(0);
         $("#supprRugby").fadeToggle(0);
         $("#supprBasketball").fadeToggle(0);
@@ -147,7 +151,7 @@
     });
 
     $("#supprFluxAjoutés").click(function () {
-        let rss = window.alert("Le flux Football a été supprimé");
+        let rss = window.alert("Le flux ajouté a été supprimé");
         $("#supprFootball").fadeToggle(0);
         $("#supprRugby").fadeToggle(0);
         $("#supprBasketball").fadeToggle(0);
